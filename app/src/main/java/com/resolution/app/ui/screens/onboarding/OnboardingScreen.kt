@@ -76,6 +76,7 @@ fun OnboardingScreen(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
+            .statusBarsPadding()
             .padding(24.dp)
     ) {
         // Top Header: Language Switcher + Skip Button

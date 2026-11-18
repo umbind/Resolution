@@ -73,7 +73,11 @@ fun FeedScreen(
                 color = MaterialTheme.colorScheme.surface,
                 shadowElevation = 2.dp
             ) {
-                Column(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .statusBarsPadding()
+                ) {
                     // App Brand Bar
                     Row(
                         modifier = Modifier
