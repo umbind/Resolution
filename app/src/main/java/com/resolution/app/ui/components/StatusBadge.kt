@@ -19,27 +19,31 @@ fun StatusBadge(
     status: String,
     modifier: Modifier = Modifier
 ) {
-    val (bgColor, textColor, labelRes) = when (status.lowercase()) {
-        "resolved" -> Triple(
-            Color(0xFFE8F5E9),
-            Color(0xFF2E7D32),
-            R.string.status_resolved
-        )
-        "in_progress" -> Triple(
-            Color(0xFFFFF3E0),
-            Color(0xFFE65100),
-            R.string.status_in_progress
-        )
-        "solutions_added" -> Triple(
-            Color(0xFFE3F2FD),
-            Color(0xFF1565C0),
-            R.string.status_solutions_added
-        )
-        else -> Triple(
-            Color(0xFFFBE9E7),
-            Color(0xFFD84315),
-            R.string.status_open
-        )
+    val bgColor: Color
+    val textColor: Color
+    val labelRes: Int
+
+    when (status.lowercase()) {
+        "resolved" -> {
+            bgColor = Color(0xFFE8F5E9)
+            textColor = Color(0xFF2E7D32)
+            labelRes = R.string.status_resolved
+        }
+        "in_progress" -> {
+            bgColor = Color(0xFFFFF3E0)
+            textColor = Color(0xFFE65100)
+            labelRes = R.string.status_in_progress
+        }
+        "solutions_added" -> {
+            bgColor = Color(0xFFE3F2FD)
+            textColor = Color(0xFF1565C0)
+            labelRes = R.string.status_solutions_added
+        }
+        else -> {
+            bgColor = Color(0xFFFBE9E7)
+            textColor = Color(0xFFD84315)
+            labelRes = R.string.status_open
+        }
     }
 
     Box(
