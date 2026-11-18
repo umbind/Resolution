@@ -2,6 +2,13 @@
     <string name="app_name">समाधान</string>
     <string name="app_tagline">समस्या आपकी, समाधान हम सबका</string>
 
+    <!-- Language & Selection -->
+    <string name="lang_hindi">हिंदी</string>
+    <string name="lang_english">English</string>
+    <string name="action_continue_hindi">हिंदी में जारी रखें</string>
+    <string name="action_continue_english">Continue in English</string>
+    <string name="action_change_language">भाषा बदलें</string>
+
     <!-- Navigation -->
     <string name="nav_feed">मुद्दे</string>
     <string name="nav_post">नया मुद्दा</string>
@@ -9,21 +16,60 @@
     <string name="nav_profile">प्रोफाइल</string>
 
     <!-- General Actions -->
-    <string name="action_continue_hindi">हिंदी में जारी रखें</string>
-    <string name="action_continue_english">Continue in English</string>
     <string name="action_submit">दर्ज करें</string>
     <string name="action_cancel">रद्द करें</string>
+    <string name="action_skip">छोड़ें</string>
+    <string name="action_next">आगे बढ़ें</string>
+    <string name="action_get_started">शुरू करें</string>
     <string name="action_support">समर्थन करें</string>
     <string name="action_share_whatsapp">व्हाट्सएप पर साझा करें</string>
     <string name="action_report">रिपोर्ट करें</string>
     <string name="action_block">ब्लॉक करें</string>
+    <string name="action_retry">पुनः प्रयास करें</string>
+    <string name="action_sign_in">लॉगिन करें</string>
+    <string name="action_sign_out">लॉगआउट</string>
+    <string name="action_continue_as_guest">अतिथि के रूप में देखें</string>
+
+    <!-- Onboarding Cards -->
+    <string name="onboarding_1_title">समस्या साझा करें</string>
+    <string name="onboarding_1_desc">स्कूल या शिक्षा की किसी भी समस्या को बोलकर या लिखकर 60 सेकंड में दर्ज करें।</string>
+    <string name="onboarding_2_title">व्यावहारिक समाधान पाएं</string>
+    <string name="onboarding_2_desc">शिक्षक, अभिभावक और स्वयंसेवक मिलकर ठोस और व्यावहारिक उपाय सुझाते हैं।</string>
+    <string name="onboarding_3_title">सामूहिक बदलाव लाएं</string>
+    <string name="onboarding_3_desc">समाधानों को लागू करें, सफलता की कहानियां साझा करें और अपने गांव का मान बढ़ाएं।</string>
+
+    <!-- Authentication -->
+    <string name="auth_welcome">समाधान मंच में आपका स्वागत है</string>
+    <string name="auth_subtitle">शिक्षा में सुधार के लिए समुदाय से जुड़ें</string>
+    <string name="auth_phone_hint">10 अंकों का मोबाइल नंबर</string>
+    <string name="auth_send_otp">OTP भेजें</string>
+    <string name="auth_verify_otp">OTP सत्यापित करें</string>
+    <string name="auth_otp_hint">प्राप्त 6 अंकों का OTP दर्ज करें</string>
+    <string name="auth_or">अथवा</string>
+    <string name="auth_google_btn">Google के साथ जुड़ें</string>
+    <string name="auth_role_title">अपनी भूमिका चुनें</string>
+    <string name="auth_role_subtitle">ताकि हम आपको सही समुदाय से जोड़ सकें</string>
+    <string name="role_student">विद्यार्थी (Student)</string>
+    <string name="role_parent">अभिभावक (Parent)</string>
+    <string name="role_teacher">शिक्षक (Teacher)</string>
+    <string name="role_volunteer">युवा स्वयंसेवक (Volunteer)</string>
+    <string name="role_ngo">एनजीओ / संस्था (NGO)</string>
 
     <!-- Post Creation -->
     <string name="title_post_issue">नया मुद्दा दर्ज करें</string>
     <string name="hint_issue_title">समस्या का संक्षेप में शीर्षक लिखें...</string>
     <string name="hint_issue_desc">समस्या का पूरा विवरण दें या बोलकर बताएं...</string>
     <string name="prompt_voice_input">बोलकर बताएं</string>
+    <string name="listening_voice">सुन रहे हैं... बोलिए</string>
     <string name="warning_no_personal_names">कृपया किसी शिक्षक या छात्र का व्यक्तिगत नाम न लिखें।</string>
+
+    <!-- Categories -->
+    <string name="cat_all">सभी</string>
+    <string name="cat_infrastructure">भवन एवं शौचालय</string>
+    <string name="cat_teaching">शिक्षक एवं कक्षा</string>
+    <string name="cat_mid_day_meal">मध्याह्न भोजन</string>
+    <string name="cat_materials">किताबें व सामग्री</string>
+    <string name="cat_safety">बालिका सुरक्षा</string>
 
     <!-- Structured Solution Form -->
     <string name="title_add_solution">व्यावहारिक समाधान सुझाएं</string>

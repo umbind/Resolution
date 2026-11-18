@@ -5,14 +5,22 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import com.resolution.app.ui.navigation.MainScaffold
+import com.resolution.app.ui.screens.auth.AuthScreen
+import com.resolution.app.ui.screens.onboarding.OnboardingScreen
 import com.resolution.app.ui.theme.ResolutionTheme
+
+enum class AppState {
+    ONBOARDING,
+    AUTH,
+    MAIN
+}
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,28 +28,50 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ResolutionTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                ResolutionRootApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(modifier: Modifier = Modifier) {
-    Text(
-        text = stringResource(id = R.string.app_tagline),
-        modifier = modifier
-    )
-}
+fun ResolutionRootApp() {
+    var appState by remember { mutableStateOf(AppState.ONBOARDING) }
+    var currentLanguage by remember { mutableStateOf("हिंदी") }
+    var userRole by remember { mutableStateOf("parent") }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ResolutionTheme {
-        Greeting()
+    when (appState) {
+        AppState.ONBOARDING -> {
+            OnboardingScreen(
+                onFinishOnboarding = { appState = AppState.AUTH },
+                onLanguageToggle = {
+                    currentLanguage = if (currentLanguage == "हिंदी") "English" else "हिंदी"
+                },
+                currentLanguage = currentLanguage,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+        AppState.AUTH -> {
+            AuthScreen(
+                onAuthSuccess = { selectedRole ->
+                    userRole = selectedRole
+                    appState = AppState.MAIN
+                },
+                onContinueAsGuest = {
+                    userRole = "guest"
+                    appState = AppState.MAIN
+                },
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+        AppState.MAIN -> {
+            MainScaffold(
+                onSignOut = { appState = AppState.AUTH },
+                onLanguageChange = {
+                    currentLanguage = if (currentLanguage == "हिंदी") "English" else "हिंदी"
+                },
+                modifier = Modifier.fillMaxSize()
+            )
+        }
     }
 }

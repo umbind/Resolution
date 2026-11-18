@@ -1,38 +1,34 @@
 # Project Status: Resolution Android
 
-**Current Phase:** Gate G0 (Planning & Project Inception)  
+**Current Phase:** Gate G1 (Foundation, Design System, Onboarding & Auth)  
 **Last Updated:** November 18, 2026
 
 ---
 
 ## 1. Done (Completed Tasks)
-- [x] Initialized Project Workflow Kit (`rules/project.md`, `.agents/rules/project.md`, `workflows/*.md`, `docs/SEED.md`).
-- [x] Conducted in-depth technical & domain research (Antigravity Android, Jetpack Compose BOM `2026.09.00`, Firebase BOM `35.2.0`, Google Play UGC Policy, DPDP Act 2023 India, UP Jansunwai 1076).
-- [x] Authored core specifications:
-  - `docs/PRD.md` (Product Requirements Document)
-  - `docs/ARCHITECTURE.md` (Tech stack, Firestore schema, security rules, AI design)
-  - `docs/BACKLOG.md` (Milestones G1 to G5, small testable tasks)
-  - `docs/UX_BENCHMARK.md` (10 best-in-class apps, patterns to adopt/avoid, UX rubric)
-  - `docs/DESIGN.md` (Material 3 tokens, Devanagari typography, key screen specs)
-  - `docs/ENGAGEMENT.md` (Healthy engagement, notification limits, privacy-respecting metrics)
-  - `docs/USABILITY_TEST.md` (5-person test script in Hindi)
-  - `docs/AI_EVAL.md` (30 realistic UP education cases and guardrails)
-  - `docs/AI_PROMPTS.md` (Solution Coach, Duplicate Detection, Best Practical Plan prompts)
-  - `docs/RISKS.md` (Top risks & mitigation strategies)
-  - `docs/DECISIONS.md` (Architecture decision log)
-  - `docs/NEEDS_FROM_USER.md` (Action items requiring user intervention)
+- [x] Initialized Project Workflow Kit & Rules (`rules/project.md`, `workflows/*.md`, `docs/SEED.md`).
+- [x] Conducted in-depth technical research & generated all architectural specs (`docs/PRD.md`, `docs/ARCHITECTURE.md`, `docs/UX_BENCHMARK.md`, `docs/DESIGN.md`, `docs/ENGAGEMENT.md`, `docs/USABILITY_TEST.md`, `docs/AI_EVAL.md`, `docs/AI_PROMPTS.md`, `docs/RISKS.md`).
+- [x] **Firebase Remote Integration**:
+  - Registered Android app `com.resolution.app` in project `resolution-a1a0b` via CLI.
+  - Retrieved and linked live `app/google-services.json` (App ID `1:734894418769:android:8a00649f3d5136ea840170`).
+  - Verified active standard Firestore instance `(default)`.
+  - Deployed comprehensive `firestore.rules` directly to `cloud.firestore`.
+- [x] **Milestone G1 Complete**:
+  - Implemented Material 3 Design System (Warm Terracotta Indian Educational theme).
+  - Implemented Devanagari typography scale with Noto Sans Devanagari fallbacks.
+  - Implemented 48dp+ accessible components (`PrimaryButton`, `IssueCard`, `StatusBadge`).
+  - Built 3-card skippable Onboarding with runtime Hindi/English language toggle (`OnboardingScreen`).
+  - Built Authentication screen supporting Phone OTP, Google Sign-in, and Guest mode (`AuthScreen`).
+  - Built Role selection bottom sheet (विद्यार्थी, अभिभावक, शिक्षक, स्वयंसेवक, एनजीओ).
+  - Implemented 4-destination bottom navigation and screen scaffolds (`MainScaffold`, `FeedScreen`, `PostIssueScreen`, `ImpactScreen`, `ProfileScreen`).
+  - Added unit test suite `MilestoneG1UnitTest.kt`.
 
 ---
 
-## 2. In Progress (Active Task)
-- [ ] Completing Project Skeleton, Gradle configuration files, CI workflow, and Git initialization for Milestone G0 approval.
+## 2. Next Milestone
+- **Milestone G2**: Core Issue & Solution Flows (Room DB offline caching, Voice-first SpeechRecognizer integration, Structured Solution wizard, Community scoring).
 
 ---
 
-## 3. Next Tasks (Upon Gate G0 Approval)
-- [ ] Milestone G1: App Skeleton, Design System implementation, Onboarding & Firebase Auth integration.
-
----
-
-## 4. Blockers
-- None. (Local Android SDK/JDK environment requirements are catalogued in `docs/NEEDS_FROM_USER.md`).
+## 3. Blockers
+- None.
