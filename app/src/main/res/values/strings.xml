@@ -44,7 +44,7 @@
     <string name="onboarding_2_title">आइडिया और गतिविधि कार्ड बाँटें</string>
     <string name="onboarding_2_desc">कम खर्च की शिक्षण सामग्री (TLM), मजेदार खेल और पढ़ाई के आसान तरीके साझा करें।</string>
     <string name="onboarding_3_title">साथ मिलकर सीखें और सिखाएं</string>
-    <string name="onboarding_3_desc">उपाय आजमाएं, 'काम कर गया' बताएं और सर्वश्रेष्ठ अध्ययन योजनाएं पाएं।</string>
+    <string name="onboarding_3_desc">उपाय आजमाएं, \'काम कर गया\' बताएं और सर्वश्रेष्ठ अध्ययन योजनाएं पाएं।</string>
 
     <!-- Authentication -->
     <string name="auth_welcome">पढ़ाई की चौपाल में आपका स्वागत है</string>
