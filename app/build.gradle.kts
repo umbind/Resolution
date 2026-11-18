@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
 }
@@ -77,9 +78,9 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.navigation:navigation-compose:2.8.4")
 
-    // Hilt Dependency Injection
+    // Hilt Dependency Injection & Compiler
     implementation("com.google.dagger:hilt-android:2.55")
-    // Note: Hilt compiler will be hooked via KSP / kapt in next step
+    ksp("com.google.dagger:hilt-compiler:2.55")
 
     // Firebase BOM (Pinned 35.2.0)
     val firebaseBom = platform("com.google.firebase:firebase-bom:33.7.0")
@@ -91,9 +92,10 @@ dependencies {
     // Image loading
     implementation("io.coil-kt.coil3:coil-compose:3.0.4")
 
-    // Room Database (Offline Cache)
+    // Room Database & Compiler (Offline Cache)
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 
     // Unit Testing
     testImplementation("junit:junit:4.13.2")

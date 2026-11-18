@@ -15,6 +15,7 @@ import com.resolution.app.ui.navigation.MainScaffold
 import com.resolution.app.ui.screens.auth.AuthScreen
 import com.resolution.app.ui.screens.onboarding.OnboardingScreen
 import com.resolution.app.ui.theme.ResolutionTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 enum class AppState {
     ONBOARDING,
@@ -22,6 +23,7 @@ enum class AppState {
     MAIN
 }
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
