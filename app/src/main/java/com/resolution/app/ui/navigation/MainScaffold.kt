@@ -25,6 +25,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import com.resolution.app.R
+import com.resolution.app.data.model.Issue
+import com.resolution.app.ui.screens.detail.IssueDetailScreen
 import com.resolution.app.ui.screens.feed.FeedScreen
 import com.resolution.app.ui.screens.impact.ImpactScreen
 import com.resolution.app.ui.screens.post.PostIssueScreen
@@ -48,7 +50,7 @@ fun MainScaffold(
     modifier: Modifier = Modifier
 ) {
     var currentDestination by remember { mutableStateOf(MainDestination.FEED) }
-    var selectedIssueForDetail by remember { mutableStateOf<com.resolution.app.data.model.Issue?>(null) }
+    var selectedIssueForDetail by remember { mutableStateOf<Issue?>(null) }
 
     Scaffold(
         bottomBar = {
@@ -77,7 +79,7 @@ fun MainScaffold(
         modifier = modifier.fillMaxSize()
     ) { innerPadding ->
         if (selectedIssueForDetail != null) {
-            com.resolution.app.ui.screens.detail.IssueDetailScreen(
+            IssueDetailScreen(
                 issue = selectedIssueForDetail!!,
                 onBack = { selectedIssueForDetail = null },
                 onShareWhatsApp = { /* Share via WhatsApp */ },
@@ -92,21 +94,22 @@ fun MainScaffold(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
-            MainDestination.POST -> {
-                PostIssueScreen(
-                    onSubmitSuccess = { currentDestination = MainDestination.FEED },
-                    modifier = Modifier.padding(innerPadding)
-                )
-            }
-            MainDestination.IMPACT -> {
-                ImpactScreen(modifier = Modifier.padding(innerPadding))
-            }
-            MainDestination.PROFILE -> {
-                ProfileScreen(
-                    onSignOut = onSignOut,
-                    onLanguageChange = onLanguageChange,
-                    modifier = Modifier.padding(innerPadding)
-                )
+                MainDestination.POST -> {
+                    PostIssueScreen(
+                        onSubmitSuccess = { currentDestination = MainDestination.FEED },
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+                MainDestination.IMPACT -> {
+                    ImpactScreen(modifier = Modifier.padding(innerPadding))
+                }
+                MainDestination.PROFILE -> {
+                    ProfileScreen(
+                        onSignOut = onSignOut,
+                        onLanguageChange = onLanguageChange,
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
             }
         }
     }
