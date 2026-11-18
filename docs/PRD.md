@@ -1,90 +1,85 @@
-# Product Requirements Document (PRD): Resolution
+# Product Requirements Document (PRD): पढ़ाई की चौपाल (Padhai Ki Chaupal)
 
-**Working Title:** Resolution (समाधान मंच)  
+**App Name:** पढ़ाई की चौपाल  
+**Tagline (Hindi):** "सवाल पूछो, आइडिया बाँटो"  
+**Tagline (English):** "Ask questions, share learning ideas"  
 **Target Platform:** Android (Optimized for Android 8.0+ / API 26+; lightweight for low-end devices)  
 **Primary Language:** Hindi (Default), English (Secondary)  
-**Target Geography & Domain:** Uttar Pradesh, India (Education Focus: Infrastructure, Teacher Shortage, Mid-day Meals, Digital Access, Girls' Education)  
-**Primary User Personas:** Students (14+), Parents, Teachers, Community Volunteers, Local NGOs  
+**Target Geography & Domain:** Uttar Pradesh, India (Learning Community: Study methods, teaching tricks, TLM, exam prep, learning challenges)  
+**Primary User Personas:** Teachers, Parents, Students (14+), Education Volunteers, Shiksha Mitras  
 
 ---
 
 ## 1. Executive Summary & Problem Statement
-In Uttar Pradesh, millions of students and schools face everyday educational challenges—ranging from non-functional toilets, delayed mid-day meals, broken benches, to teacher shortages. While formal government grievance portals (like Jansunwai 1076) exist, they are often seen as bureaucratic complaints rather than constructive community problem-solving platforms. 
+In Uttar Pradesh and across India, teachers, parents, and students face daily challenges in *how to learn and study effectively*: How do you explain fractions to a 5th grader who struggles with numbers? How can parents help children with English homework when they don't speak English themselves? How can a teacher make a 40-student primary classroom interactive with zero budget?
 
-**Resolution** is a constructive public platform where community members surface local educational challenges and collaboratively build, score, and execute practical solutions. Rather than merely venting or politicising grievances, users propose actionable solutions using a structured format, leveraged by Gemini AI assistance (Solution Coach, Duplicate Detection, and Best Practical Plans).
+**पढ़ाई की चौपाल** is a community knowledge-sharing platform dedicated entirely to **HOW TO LEARN AND STUDY**. It is **NOT** a grievance or complaint portal. Users do not report broken toilets or missing infrastructure. Instead, they ask questions about learning challenges and share practical, low-cost activities, study techniques, and teaching tricks. 
 
 ---
 
 ## 2. Core Principles
-1. **Action-Oriented, Non-Political:** Strictly exclude political finger-pointing; focus exclusively on verifiable school and community solutions.
-2. **Accessible to First-Time Smartphone Users:** Voice-first posting in Hindi; under-60-second time-to-first-post; large touch targets; zero jargon.
-3. **Low-End Phone & Weak Network Resilient:** Sub-25MB APK; aggressive offline caching with Room; lazy-loading and compressed image storage; graceful offline queueing.
-4. **Safety & DPDP Act 2023 Compliance:** Child protection first; zero public exposure of minors' contact details or school rosters; no defamatory naming of teachers or students; mandatory in-app reporting and blocking.
-5. **Healthy, Non-Addictive Engagement:** Recognition rooted in real-world impact (worked solutions, verified badges, "Solution of the Week") without toxic streaks, dopamine hacking, or vanity metrics.
+1. **Focus on Learning Solutions, Not Infrastructure Grievances:** School infrastructure complaints (broken walls, water pumps, teacher vacancies) and political accusations are strictly excluded and flagged. The platform is 100% focused on pedagogy, study methods, and learning activities.
+2. **Accessible to Low-Resource Educators & Parents:** Voice-first posting in Hindi; under-60-second posting; large touch targets; simple Hindi without educational jargon.
+3. **Structured "Activity Cards" (गतिविधि कार्ड):** Ideas are not vague opinions; they follow a concrete template: class/age, time needed, low-cost materials (TLM), step-by-step method, and learning outcome.
+4. **Safety & Child Protection:** Strict adherence to DPDP Act 2023. Zero exposure of minors' contact details or identifiable photos. No named accusations against teachers, schools, or students.
+5. **Constructive Recognition:** Badges for verified educators, community-voted "Tried it and it worked" (प्रमाणित: काम कर गया) counters, and WhatsApp-friendly sharing for teachers' groups.
 
 ---
 
 ## 3. User Personas & Journeys
-* **Ramesh (Parent, Rural Sitapur):** Wants clean drinking water in his daughter's primary school. Uses Hindi voice input to post an issue in 45 seconds. Reads solutions proposed by a local NGO.
-* **Sunita (Primary School Teacher, Barabanki):** Needs teaching aids and library books for Grade 4. Posts a request; receives structured guidance on community book-donation drives.
-* **Amit (College Student / Youth Volunteer, Lucknow):** Enjoys solving math doubts and organizing weekend tutoring; earns "Helpful Solution" and "Verified Volunteer" badges.
-* **Seema (Local Education NGO Representative):** Identifies recurring block-level issues; publishes vetted solution blueprints with cost estimates; tracks real-world impact.
+* **Sunita Sharma (Primary School Teacher, Barabanki):** Wants a quick 5-minute math game for Grade 3 multiplication. Searches the app, finds a pebble-based counting activity, tries it in class, and marks "Tried it and it worked!"
+* **Ramesh Chandra (Parent, Sitapur):** His son in Grade 6 gets anxious before exams. Ramesh posts a question: "बच्चा परीक्षा के नाम से घबराता है, क्या करें?". Gets structured routines from experienced teachers and an AI-generated weekly study routine.
+* **Amit (Shiksha Mitra / Youth Volunteer, Varanasi):** Creates creative low-cost TLM (teaching-learning materials) using cardboard and bottle caps to teach English phonics. Shares the step-by-step activity card and earns the "Star Educator" badge.
+* **Pooja (Grade 10 Student, Lucknow):** Asks for effective memory techniques to remember history dates without rote cramming; receives mnemonic tricks and a revision timetable.
 
 ---
 
 ## 4. MVP Feature Specifications
 
-### 4.1 Authentication & Role-Based Profiles
-- **Auth Methods:** Firebase Phone Auth (OTP) & Google Sign-In.
-- **Roles:** Student (Age verified / Parent consent check), Parent, Teacher, Volunteer, NGO Representative.
-- **Profile Fields:** Name/Alias, District, Block, Role, Contributor Badges, Resolved Impact Count.
-- **Privacy Controls:** Option to post with verified role alias (e.g., "Parent from Bakshi Ka Talab") to protect privacy while maintaining credibility.
+### 4.1 Post Architecture: Two Core Post Types
+Every post belongs to one of two distinct types:
+1. **सवाल या चुनौती (Question or Challenge):**
+   - e.g., "कक्षा 5 के बच्चे को भिन्न (fractions) खेल-खेल में कैसे सिखाएं?", "पहाड़े याद करने में कठिनाई हो रही है।"
+   - Contains: Title, Description, Category, Target Class/Age, Optional voice note or image.
+2. **आइडिया या गतिविधि (Idea or Activity):**
+   - Follows the structured **Activity Card** template (see 4.3).
+   - Can be posted as a standalone idea in the feed or as a direct solution/reply to a question.
 
-### 4.2 Issue Creation (Voice-First & Low-Friction)
-- **Fast 60-Second Flow:**
-  1. Title (Text or Hindi Voice Transcription via Android SpeechRecognizer).
-  2. Description (Text or Voice).
-  3. Category: Infrastructure (भवन/शौचालय/बिजली), Teaching/Staff (शिक्षक/कक्षा), Mid-day Meal (मध्याह्न भोजन), Study Materials & Books (किताबें/उपकरण), Girls' Safety (बालिका सुरक्षा/सुलभता).
-  4. Location: UP District (75 districts dropdown) & Block (तहसील/ब्लॉक).
-  5. Optional Attachment: Compressed single photo (max 1080p, <500KB compressed locally).
-- **Offline Drafts:** Auto-saved locally in Room DB.
+### 4.2 9 Core Categories
+1. **पढ़ाई के तरीके व तकनीक (Study methods & memory techniques)**
+2. **गणित और विज्ञान गतिविधियाँ (Maths and science activities)**
+3. **पढ़ना और लिखना (Reading and writing fluency)**
+4. **अंग्रेजी व भाषा सीखें (English and language learning)**
+5. **परीक्षा की तैयारी व तनाव मुक्ति (Exam preparation and stress management)**
+6. **कम खर्च की शिक्षण सामग्री / TLM (Low-cost activities & DIY toys)**
+7. **कक्षा में पढ़ाने के तरीके (Classroom teaching methods & games)**
+8. **करियर और हुनर (Careers, vocational skills & guidance)**
+9. **घर पर बच्चों की पढ़ाई में मदद (Support for parents at home)**
 
-### 4.3 Structured Solution Engine
-Rather than casual comments, solutions follow a mandatory structured schema:
-1. **What will be done (क्या किया जाएगा)**
-2. **Who will do it (कौन करेगा: पंचायत, शिक्षक, स्वयंसेवक, एनजीओ)**
-3. **Estimated Cost (अनुमानित खर्च: ₹0, <₹1,000, ₹1k-₹5k, >₹5k)**
-4. **Estimated Time to Implement (समय सीमा: 1-3 दिन, 1-2 सप्ताह, 1 महीना+)**
-5. **Key Risks & Precautions (जोखिम और सावधानियां)**
-6. **Worked Example (कहाँ पहले सफल रहा)**
+### 4.3 Structured "Activity Card" (गतिविधि कार्ड) Schema
+When posting an Idea/Activity or replying to a Question:
+* **कक्षा / आयु वर्ग (Target Class/Age):** e.g., Balvatika / Class 1-3 / Class 4-5 / Class 6-8 / Class 9-10 / Class 11-12
+* **समय (Time needed):** 5 मिनट / 15 मिनट / 30 मिनट
+* **सामग्री (Materials needed - Low cost / TLM):** e.g., बोतल के ढक्कन, माचिस की तीलियां, कागज, कंकड़, ₹0 खर्च
+* **चरणबद्ध तरीका (Step-by-step method):** Clear numbered steps
+* **सीखने का प्रतिफल (Expected Learning Outcome):** What the learner will understand
+* **काम कर गया (Tried it and it worked counter):** Community verification button
+* **सुझाव / बदलाव (Adaptation notes):** How to modify for larger classes or younger siblings
 
-### 4.4 Community Evaluation & "Tried This, It Worked"
-- **Feasibility, Cost, and Impact Ratings** (1 to 5 stars or simple High/Medium/Low chips).
-- **Upvote / Support Button** (with optimistic local UI update).
-- **"Tried this, it worked" Tag:** Requires before-and-after photo evidence or verification from 2 distinct community members.
+### 4.4 AI Features (via Gemini Server-Side)
+1. **Activity Coach (गतिविधि कोच):** Evaluates a draft idea before publishing, providing tips to make steps clearer, safer, and suitable for the selected age group.
+2. **Duplicate & Similarity Clustering:** Finds similar questions already asked and points the user to existing answers.
+3. **श्रेष्ठ अध्ययन योजना (Best Study Plan):** For any question with multiple responses, Gemini synthesizes the best community activities into a practical weekly routine (e.g., Day 1 to Day 6 daily 15-minute micro-habits).
+4. **AI Safety Guardrails:** Strictly prohibits medical/psychological diagnoses, does not fabricate government schemes or research studies, and explicitly includes disclaimers when uncertain.
 
-### 4.5 AI Assistance (Powered by Server-Proxied Gemini)
-- **Solution Coach:** Interactive pre-post critique: "आपका सुझाव अच्छा है, लेकिन खर्च का विवरण जोड़ें तो पंचायत जल्दी ध्यान देगी।"
-- **Duplicate Issue Detector:** Alerts user if a similar issue in the same block/school already exists; prompts joining forces.
-- **Issue Summary:** 3-bullet summary in simple Hindi for long posts.
-- **Best Practical Plan (BPP):** Synthesizes top 2-3 voted solutions into a single step-by-step action plan.
-- **Transparency:** All AI outputs clearly badged with "AI द्वारा संकलित (AI-Generated)", fully editable by author, and reportable.
-
-### 4.6 Safety, Moderation & UGC Compliance (Google Play & DPDP)
-- **Content Guidelines Acceptance:** Upfront acceptance modal before first post or solution.
-- **In-App Reporting:** 1-tap report button on every issue and solution (Categories: Abusive language, Defamation/Naming individuals, False info, Irrelevant/Spam).
-- **Blocking:** 1-tap block user from profile or issue card.
-- **Anti-Defamation Guardrails:** AI and regex filter intercepting teacher/student personal names or phone numbers.
-- **Minor Protection:** DPDP Act 2023 compliance—no behavioral tracking, strict parental consent flag for under-18, no public ranking of minors.
-
-### 4.7 Shareability & Social Proof
-- **WhatsApp Image Card Generator:** Renders a clean, high-contrast Hindi graphic summary card with issue title, district, best solution, and QR/short link for instant viral sharing on WhatsApp status and groups.
-- **Impact Tab:** Displays verified resolved issues with before/after photos and community credit.
+### 4.5 Exclusions & Moderation Rules
+* **Excluded Content:** School infrastructure complaints (broken toilets, boundary walls, drinking water issues, handpumps, teacher vacancies), political debates, personal naming/accusations against teachers, staff, or students.
+* **Automated & Community Moderation:** Pre-submit regex and keyword checks flag infrastructure/complaint words (शिकायत, शौचालय, हैंडपंप, वेतन, ट्रांसफर, नेता, भ्रष्ट) and gently redirect: "यह मंच पढ़ाई और गतिविधियों के लिए है। शिकायत दर्ज करने के लिए जनसुनवाई (1076) का उपयोग करें।"
 
 ---
 
 ## 5. Non-Functional Requirements
-- **APK Size:** Under 20 MB download size.
-- **Cold Launch Time:** < 1.8 seconds on 2GB RAM Android Go devices.
-- **Battery & Memory:** Zero background battery drain; image caching memory bound to 15% of heap.
-- **Offline Support:** Full read capability for cached feeds and offline draft queueing with automatic sync when connection resumes.
+* **App Size:** < 25 MB APK.
+* **Offline-First:** All feeds and drafts cached locally in Room DB. Auto-sync on reconnection.
+* **Network Tolerance:** Performs smoothly on 2G/3G connections and high-latency edge networks in rural UP.
+* **Bilingual UI:** Hindi default with high-contrast text and warm terracotta educational theme (`#C04E22`).

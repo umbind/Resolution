@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import com.resolution.app.R
-import com.resolution.app.data.model.Issue
 import com.resolution.app.ui.screens.detail.IssueDetailScreen
 import com.resolution.app.ui.screens.feed.FeedScreen
 import com.resolution.app.ui.screens.impact.ImpactScreen
@@ -50,18 +49,18 @@ fun MainScaffold(
     modifier: Modifier = Modifier
 ) {
     var currentDestination by remember { mutableStateOf(MainDestination.FEED) }
-    var selectedIssueForDetail by remember { mutableStateOf<Issue?>(null) }
+    var selectedPostIdForDetail by remember { mutableStateOf<String?>(null) }
 
     Scaffold(
         bottomBar = {
-            if (selectedIssueForDetail == null) {
+            if (selectedPostIdForDetail == null) {
                 NavigationBar {
                     MainDestination.values().forEach { destination ->
                         val isSelected = currentDestination == destination
                         NavigationBarItem(
                             selected = isSelected,
                             onClick = { 
-                                selectedIssueForDetail = null
+                                selectedPostIdForDetail = null
                                 currentDestination = destination 
                             },
                             icon = {
@@ -78,19 +77,18 @@ fun MainScaffold(
         },
         modifier = modifier.fillMaxSize()
     ) { innerPadding ->
-        if (selectedIssueForDetail != null) {
+        if (selectedPostIdForDetail != null) {
             IssueDetailScreen(
-                issue = selectedIssueForDetail!!,
-                onBack = { selectedIssueForDetail = null },
-                onShareWhatsApp = { /* Share via WhatsApp */ },
+                issueId = selectedPostIdForDetail!!,
+                onBackClick = { selectedPostIdForDetail = null },
                 modifier = Modifier.padding(innerPadding)
             )
         } else {
             when (currentDestination) {
                 MainDestination.FEED -> {
                     FeedScreen(
-                        onIssueClick = { issue -> selectedIssueForDetail = issue },
-                        onPostClick = { currentDestination = MainDestination.POST },
+                        onPostClick = { postId -> selectedPostIdForDetail = postId },
+                        onCreatePostClick = { currentDestination = MainDestination.POST },
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

@@ -5,10 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.resolution.app.data.local.dao.IssueDao
+import com.resolution.app.data.local.dao.PostDao
 import com.resolution.app.data.local.entity.IssueEntity
+import com.resolution.app.data.local.entity.PostEntity
 
-@Database(entities = [IssueEntity::class], version = 1, exportSchema = false)
+@Database(entities = [PostEntity::class, IssueEntity::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun postDao(): PostDao
     abstract fun issueDao(): IssueDao
 
     companion object {
@@ -20,7 +23,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "resolution_offline.db"
+                    "chaupal_offline.db"
                 ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance

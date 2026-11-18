@@ -1,8 +1,12 @@
 package com.resolution.app
 
-import com.resolution.app.data.local.entity.IssueEntity
-import com.resolution.app.data.model.Issue
-import com.resolution.app.data.model.Solution
+import com.resolution.app.data.local.entity.PostEntity
+import com.resolution.app.data.model.ActivityCard
+import com.resolution.app.data.model.BestStudyPlan
+import com.resolution.app.data.model.DailyStudyStep
+import com.resolution.app.data.model.LearningPost
+import com.resolution.app.data.model.PostType
+import com.resolution.app.data.repository.PostRepository
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
@@ -11,56 +15,91 @@ import org.junit.Test
 class MilestoneG2UnitTest {
 
     @Test
-    fun issueEntity_mappingIsBiDirectionalAndLossless() {
-        val originalIssue = Issue(
-            issueId = "iss_up_501",
-            authorId = "usr_10",
-            authorRole = "teacher",
-            authorAlias = "सुनीता देवी",
-            title = "बालिका शौचालय में पानी नहीं है",
-            description = "कक्षा 6 से 8 की छात्राएं स्कूल आने में संकोच करती हैं।",
-            category = "safety",
-            districtId = "बाराबंकी",
-            blockId = "फतेहपुर",
-            status = "solutions_added",
-            supportCount = 35,
-            solutionCount = 2,
-            aiSummaryHindi = "पानी की समस्या",
+    fun postEntity_mappingIsBiDirectionalAndLossless() {
+        val originalPost = LearningPost(
+            postId = "post_up_101",
+            authorId = "usr_sunita",
+            authorName = "सुनीता शर्मा",
+            authorRole = "role_teacher",
+            isExpertVerified = true,
+            postType = PostType.ACTIVITY,
+            title = "कागज की पट्टियों से भिन्न समझाना",
+            description = "कक्षा 4 के छात्रों के लिए रंगीन पट्टियों का खेल।",
+            category = "cat_math_science",
+            targetClass = "कक्षा 4-5",
+            activityCard = ActivityCard(
+                cardId = "post_up_101",
+                postId = "post_up_101",
+                authorName = "सुनीता शर्मा",
+                targetClass = "कक्षा 4-5",
+                timeNeeded = "15 मिनट",
+                materialsNeeded = "रंगीन कागज और कैंची",
+                stepByStep = "1. पट्टियों को आधा मोड़ें। 2. बराबर हिस्सों की तुलना करें।",
+                learningOutcome = "1/2 और 1/4 का दृश्य अनुभव।",
+                upvotes = 40,
+                triedCount = 25
+            ),
+            supportCount = 40,
+            triedCount = 25,
+            repliesCount = 2,
+            bestStudyPlan = BestStudyPlan(
+                title = "7 दिवसीय भिन्न योजना",
+                summary = "प्रतिदिन 10 मिनट की समझ",
+                targetClass = "कक्षा 4-5",
+                dailySteps = listOf(
+                    DailyStudyStep(1, "कागज मोड़ना", 10, "आधा हिस्सा समझना", "कागज")
+                )
+            ),
             createdAt = 1700000000000L
         )
 
-        val entity = IssueEntity.fromDomainModel(originalIssue)
-        val reconstructedIssue = entity.toDomainModel()
+        val entity = PostEntity.fromDomainModel(originalPost)
+        val reconstructed = entity.toDomainModel()
 
-        assertEquals(originalIssue.issueId, reconstructedIssue.issueId)
-        assertEquals(originalIssue.title, reconstructedIssue.title)
-        assertEquals(originalIssue.category, reconstructedIssue.category)
-        assertEquals(originalIssue.supportCount, reconstructedIssue.supportCount)
-        assertEquals(originalIssue.solutionCount, reconstructedIssue.solutionCount)
-        assertEquals(originalIssue.districtId, reconstructedIssue.districtId)
+        assertEquals(originalPost.postId, reconstructed.postId)
+        assertEquals(originalPost.title, reconstructed.title)
+        assertEquals(originalPost.postType, reconstructed.postType)
+        assertEquals(originalPost.category, reconstructed.category)
+        assertEquals(originalPost.supportCount, reconstructed.supportCount)
+        assertEquals(originalPost.triedCount, reconstructed.triedCount)
+        assertNotNull(reconstructed.activityCard)
+        assertEquals("15 मिनट", reconstructed.activityCard?.timeNeeded)
+        assertNotNull(reconstructed.bestStudyPlan)
     }
 
     @Test
-    fun structuredSolution_requiresActionableWhatAndWho() {
-        val solution = Solution(
-            solutionId = "sol_100",
-            issueId = "iss_up_501",
-            whatWillBeDone = "SMC और प्रधान की बैठक कर पाइप बदलेंगे",
-            whoWillDoIt = "SMC अध्यक्ष",
-            estimatedCostTier = "under_1k",
-            estimatedTimeTier = "days"
+    fun activityCard_requiresActionableStepsAndOutcome() {
+        val card = ActivityCard(
+            cardId = "card_10",
+            postId = "post_1",
+            stepByStep = "1. तीलियां गिनें। 2. बंडल बनाएं।",
+            learningOutcome = "दहाई का ज्ञान"
         )
 
-        assertTrue(solution.whatWillBeDone.isNotBlank())
-        assertTrue(solution.whoWillDoIt.isNotBlank())
-        assertNotNull(solution.estimatedCostTier)
+        assertTrue(card.stepByStep.isNotBlank())
+        assertTrue(card.learningOutcome.isNotBlank())
     }
 
     @Test
-    fun supportCount_incrementWorksAccurately() {
-        var supportCount = 10
-        val isSupported = true
-        supportCount += if (isSupported) 1 else -1
-        assertEquals(11, supportCount)
+    fun bestStudyPlan_containsPedagogicalDisclaimer() {
+        val plan = BestStudyPlan(
+            title = "7-दिवसीय योजना",
+            summary = "सरल दिनचर्या",
+            dailySteps = listOf(
+                DailyStudyStep(1, "परिचय", 10, "शुरुआती खेल", "कंकड़")
+            )
+        )
+
+        assertTrue(plan.disclaimer.contains("शिक्षकों और अभिभावकों"))
+        assertEquals(1, plan.dailySteps.size)
+    }
+
+    @Test
+    fun sampleLearningPosts_containsRealisticUPData() {
+        val samplePosts = PostRepository.getSampleLearningPosts()
+        assertTrue(samplePosts.isNotEmpty())
+        assertTrue(samplePosts.any { it.postType == PostType.QUESTION })
+        assertTrue(samplePosts.any { it.postType == PostType.ACTIVITY })
+        assertTrue(samplePosts.any { it.bestStudyPlan != null })
     }
 }

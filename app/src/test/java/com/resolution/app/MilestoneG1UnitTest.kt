@@ -1,7 +1,8 @@
 package com.resolution.app
 
-import com.resolution.app.data.model.Issue
-import com.resolution.app.data.model.Solution
+import com.resolution.app.data.model.ActivityCard
+import com.resolution.app.data.model.LearningPost
+import com.resolution.app.data.model.PostType
 import com.resolution.app.ui.navigation.MainDestination
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -22,39 +23,50 @@ class MilestoneG1UnitTest {
     }
 
     @Test
-    fun issueModel_defaultStatusIsOpen() {
-        val issue = Issue(
-            issueId = "test_1",
-            title = "स्कूल में हैंडपंप खराब है",
-            districtId = "सीतापुर",
-            blockId = "महमूदाबाद"
+    fun learningPost_questionDefaultsAreValid() {
+        val post = LearningPost(
+            postId = "post_q1",
+            authorName = "सुनीता शर्मा (शिक्षिका)",
+            authorRole = "role_teacher",
+            postType = PostType.QUESTION,
+            title = "कक्षा 5 के बच्चों को भिन्न खेल-खेल में कैसे सिखाएं?",
+            description = "बच्चे 2/3 और 3/4 की तुलना करने में भ्रमित होते हैं।",
+            category = "cat_math_science",
+            targetClass = "कक्षा 4-5"
         )
-        assertEquals("open", issue.status)
-        assertEquals(0, issue.supportCount)
-        assertEquals(0, issue.solutionCount)
+        assertEquals(PostType.QUESTION, post.postType)
+        assertEquals(0, post.supportCount)
+        assertEquals(0, post.triedCount)
+        assertEquals(0, post.repliesCount)
+        assertEquals("कक्षा 4-5", post.targetClass)
     }
 
     @Test
-    fun solutionModel_structuredSchemaFieldsAreRetained() {
-        val solution = Solution(
-            solutionId = "sol_1",
-            issueId = "test_1",
-            whatWillBeDone = "SMC बैठक बुलाकर नया वाशर लगवाया जाए",
-            whoWillDoIt = "ग्राम पंचायत + SMC",
-            estimatedCostTier = "under_1k",
-            estimatedTimeTier = "days",
-            keyRisks = "पंचायत सचिव की अनुपलब्धता",
-            workedExample = "गोंडा में सफल रहा"
+    fun activityCard_structuredSchemaFieldsAreRetained() {
+        val card = ActivityCard(
+            cardId = "card_1",
+            postId = "post_act1",
+            authorName = "रमेश चन्द्र",
+            targetClass = "कक्षा 1-3",
+            timeNeeded = "15 मिनट",
+            materialsNeeded = "माचिस की 50 तीलियां और रबर बैंड",
+            stepByStep = "10-10 तीलियों के बंडल बनाकर दहाई की समझ बनाएं।",
+            learningOutcome = "स्थानीय मान (दहाई-इकाई) की स्पष्ट समझ।",
+            adaptations = "कंकड़ों से भी किया जा सकता है।"
         )
-        assertEquals("under_1k", solution.estimatedCostTier)
-        assertEquals("days", solution.estimatedTimeTier)
-        assertFalse(solution.isAiGenerated)
-        assertNotNull(solution.workedExample)
+        assertEquals("15 मिनट", card.timeNeeded)
+        assertEquals("कक्षा 1-3", card.targetClass)
+        assertNotNull(card.materialsNeeded)
+        assertTrue(card.stepByStep.isNotBlank())
+        assertTrue(card.learningOutcome.isNotBlank())
+        assertEquals(0, card.triedCount)
     }
 
     @Test
-    fun guestModeRole_isHandledCleanly() {
-        val userRole = "guest"
-        assertTrue(userRole.equals("guest", ignoreCase = true))
+    fun postTypeEnum_hasBothTypes() {
+        val types = PostType.values()
+        assertEquals(2, types.size)
+        assertTrue(types.contains(PostType.QUESTION))
+        assertTrue(types.contains(PostType.ACTIVITY))
     }
 }

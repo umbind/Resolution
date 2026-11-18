@@ -1,27 +1,34 @@
 <resources>
-    <string name="app_name">Resolution</string>
-    <string name="app_tagline">Local challenges, community solutions</string>
+    <string name="app_name">Padhai Ki Chaupal</string>
+    <string name="app_tagline">Ask questions, share learning ideas</string>
 
     <!-- Language & Selection -->
-    <string name="lang_hindi">Hindi</string>
+    <string name="lang_hindi">हिंदी</string>
     <string name="lang_english">English</string>
     <string name="action_continue_hindi">Continue in Hindi</string>
     <string name="action_continue_english">Continue in English</string>
     <string name="action_change_language">Change Language</string>
 
     <!-- Navigation -->
-    <string name="nav_feed">Issues</string>
-    <string name="nav_post">New Issue</string>
+    <string name="nav_feed">Chaupal</string>
+    <string name="nav_post">New Idea</string>
     <string name="nav_impact">Impact</string>
     <string name="nav_profile">Profile</string>
 
+    <!-- Post Types -->
+    <string name="tab_all">All</string>
+    <string name="tab_questions">Questions &amp; Challenges</string>
+    <string name="tab_activities">Ideas &amp; Activities</string>
+    <string name="type_question">Question</string>
+    <string name="type_activity">Activity Card</string>
+
     <!-- General Actions -->
-    <string name="action_submit">Submit</string>
+    <string name="action_submit">Share</string>
     <string name="action_cancel">Cancel</string>
     <string name="action_skip">Skip</string>
     <string name="action_next">Next</string>
     <string name="action_get_started">Get Started</string>
-    <string name="action_support">Support</string>
+    <string name="action_support">Like</string>
     <string name="action_share_whatsapp">Share on WhatsApp</string>
     <string name="action_report">Report</string>
     <string name="action_block">Block</string>
@@ -29,18 +36,19 @@
     <string name="action_sign_in">Sign In</string>
     <string name="action_sign_out">Sign Out</string>
     <string name="action_continue_as_guest">Browse as Guest</string>
+    <string name="action_add_reply">Share your activity or solution</string>
 
     <!-- Onboarding Cards -->
-    <string name="onboarding_1_title">Share Local Issues</string>
-    <string name="onboarding_1_desc">Post any school or educational challenge in under 60 seconds by voice or text.</string>
-    <string name="onboarding_2_title">Find Practical Solutions</string>
-    <string name="onboarding_2_desc">Teachers, parents, and community volunteers propose actionable, structured blueprints.</string>
-    <string name="onboarding_3_title">Drive Collective Change</string>
-    <string name="onboarding_3_desc">Implement solutions, celebrate real-world outcomes, and share progress on WhatsApp.</string>
+    <string name="onboarding_1_title">Ask Learning Challenges</string>
+    <string name="onboarding_1_desc">Stuck on how to teach or explain a concept? Ask the educator community.</string>
+    <string name="onboarding_2_title">Share Activity Cards</string>
+    <string name="onboarding_2_desc">Post zero-cost teaching tricks, micro-games, and practical study routines.</string>
+    <string name="onboarding_3_title">Learn &amp; Teach Together</string>
+    <string name="onboarding_3_desc">Try ideas in class or at home, mark \'Tried &amp; Worked\', and get AI study plans.</string>
 
     <!-- Authentication -->
-    <string name="auth_welcome">Welcome to Resolution</string>
-    <string name="auth_subtitle">Join your local education community</string>
+    <string name="auth_welcome">Welcome to Padhai Ki Chaupal</string>
+    <string name="auth_subtitle">Connect with teachers and parents for creative learning</string>
     <string name="auth_phone_hint">10-digit mobile number</string>
     <string name="auth_send_otp">Send OTP</string>
     <string name="auth_verify_otp">Verify OTP</string>
@@ -48,50 +56,57 @@
     <string name="auth_or">OR</string>
     <string name="auth_google_btn">Continue with Google</string>
     <string name="auth_role_title">Select Your Role</string>
-    <string name="auth_role_subtitle">To connect you with the right community resources</string>
-    <string name="role_student">Student</string>
-    <string name="role_parent">Parent</string>
+    <string name="auth_role_subtitle">To personalize your feed with relevant activities</string>
     <string name="role_teacher">Teacher</string>
-    <string name="role_volunteer">Volunteer</string>
-    <string name="role_ngo">NGO / Institution</string>
+    <string name="role_parent">Parent</string>
+    <string name="role_student">Student (14+)</string>
+    <string name="role_shiksha_mitra">Shiksha Mitra / Instructor</string>
+    <string name="role_volunteer">Education Volunteer</string>
 
     <!-- Post Creation -->
-    <string name="title_post_issue">Post a New Issue</string>
-    <string name="hint_issue_title">Enter a clear, brief title...</string>
-    <string name="hint_issue_desc">Describe the issue or speak using microphone...</string>
+    <string name="title_create_post">Share on Chaupal</string>
+    <string name="choose_post_type">What would you like to share?</string>
+    <string name="opt_ask_question">Ask a Question (Learning Challenge)</string>
+    <string name="opt_share_activity">Share an Idea or Activity Card</string>
+    <string name="hint_post_title">Title (e.g.: How to teach fractions using paper folding?)</string>
+    <string name="hint_post_desc">Describe in detail or speak using the microphone...</string>
     <string name="prompt_voice_input">Tap to Speak</string>
     <string name="listening_voice">Listening... please speak</string>
-    <string name="warning_no_personal_names">Please do not mention personal names of teachers or students.</string>
+    <string name="banner_scope_notice">This platform is for study methods and learning activities. For school infrastructure complaints, use Jansunwai (1076).</string>
 
-    <!-- Categories -->
-    <string name="cat_all">All</string>
-    <string name="cat_infrastructure">Infrastructure &amp; Toilets</string>
-    <string name="cat_teaching">Teachers &amp; Classrooms</string>
-    <string name="cat_mid_day_meal">Mid-Day Meal</string>
-    <string name="cat_materials">Books &amp; Materials</string>
-    <string name="cat_safety">Girls Safety</string>
+    <!-- 9 Core Learning Categories -->
+    <string name="cat_all">All Subjects</string>
+    <string name="cat_study_methods">Study Methods &amp; Techniques</string>
+    <string name="cat_math_science">Maths &amp; Science Activities</string>
+    <string name="cat_reading_writing">Reading &amp; Writing Fluency</string>
+    <string name="cat_english_lang">English &amp; Language Learning</string>
+    <string name="cat_exam_prep">Exam Prep &amp; Stress Relief</string>
+    <string name="cat_low_cost_tlm">Low-Cost TLM Materials</string>
+    <string name="cat_classroom_teaching">Classroom Teaching Methods</string>
+    <string name="cat_career_skills">Careers &amp; Skills</string>
+    <string name="cat_parent_support">Support for Parents at Home</string>
 
-    <!-- Structured Solution Form -->
-    <string name="title_add_solution">Suggest a Practical Solution</string>
-    <string name="field_what">What will be done?</string>
-    <string name="field_who">Who will do this? (e.g., SMC, Panchayat, Volunteers)</string>
-    <string name="field_cost">Estimated Cost</string>
-    <string name="field_time">Estimated Time</string>
-    <string name="field_risks">Key Risks &amp; Roadblocks</string>
-    <string name="field_example">Has this worked elsewhere?</string>
+    <!-- Structured Activity Card Schema -->
+    <string name="title_activity_card">Activity Card</string>
+    <string name="field_target_class">Class / Age Group (e.g., Class 3-5)</string>
+    <string name="field_time_needed">Time Needed (e.g., 10-15 mins)</string>
+    <string name="field_materials">Materials (Low cost / TLM, e.g. matchsticks, paper)</string>
+    <string name="field_step_by_step">Step-by-Step Method (Step 1, 2, 3...)</string>
+    <string name="field_learning_outcome">Expected Learning Outcome (What will the child learn?)</string>
+    <string name="field_adaptations">Adaptation Notes (Optional)</string>
 
-    <!-- AI Badges & Labels -->
-    <string name="badge_ai_generated">AI-Generated Summary</string>
-    <string name="badge_best_plan">Best Practical Plan</string>
-    <string name="btn_ai_coach">Check with AI Coach</string>
+    <!-- Community Signals & AI -->
+    <string name="tag_tried_worked">Tried &amp; Worked</string>
+    <string name="btn_mark_tried">I tried this, it worked!</string>
+    <string name="badge_expert_verified">Verified Educator</string>
+    <string name="badge_best_study_plan">Best Study Plan (AI Synthesized)</string>
+    <string name="badge_activity_coach">Activity Coach Tips</string>
+    <string name="btn_ai_coach">Check with AI Activity Coach</string>
+    <string name="disclaimer_study_plan">This plan synthesizes successful peer educator experiences.</string>
 
-    <!-- Status Chips -->
-    <string name="status_open">Open</string>
-    <string name="status_solutions_added">Solutions Added</string>
-    <string name="status_in_progress">In Progress</string>
-    <string name="status_resolved">Resolved</string>
-
-    <!-- Impact & Verification -->
-    <string name="tag_tried_worked">Verified: Tried &amp; Worked</string>
-    <string name="badge_expert_verified">Verified Expert</string>
+    <!-- Status & Filters -->
+    <string name="status_needs_answers">Needs Answers</string>
+    <string name="status_answered">Has Solutions</string>
+    <string name="replies_count_format">%d activities &amp; ideas</string>
+    <string name="tried_count_format">%d people tried and succeeded</string>
 </resources>

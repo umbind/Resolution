@@ -1,61 +1,65 @@
-# Project Backlog & Milestones: Resolution Android
+# Project Backlog & Milestones: पढ़ाई की चौपाल (Padhai Ki Chaupal)
 
-Milestones are mapped to Approval Gates (G0 to G5). Each task is sized for a single autonomous session with clear Acceptance Criteria (AC) and mandatory Tests.
-
----
-
-## Milestone G0: Project Inception & Planning (Approved)
-- [x] **TASK-001: Requirements & Seed Analysis** (Done)
-- [x] **TASK-002: In-Depth Research & PRD** (Done)
-- [x] **TASK-003: Project Skeleton, Gradle & CI Setup** (Done)
-- [x] **TASK-004: Gate G0 Review Report** (Approved by User)
+Milestones are mapped to Approval Gates (G0 to G5). Each task has clear Acceptance Criteria (AC) and mandatory Tests.
 
 ---
 
-## Milestone G1: App Foundation, Design System, Onboarding & Auth (Approved)
-- [x] **TASK-101: Design System & Theming (Material 3)** (Done)
-- [x] **TASK-102: Localisation Infrastructure** (Done)
-- [x] **TASK-103: Onboarding & Guest Browsing Flow** (Done)
-- [x] **TASK-104: Authentication (Phone OTP & Google)** (Done)
-- [x] **TASK-105: Bottom Navigation & Screen Scaffolding** (Done)
+## Milestone G0: Inception, Pivot & Planning (Approved)
+- [x] **TASK-001: Pivot Directive & Seed Analysis** (Done - Focused on learning methods & activities)
+- [x] **TASK-002: Pivot PRD, Architecture & Content Model** (Done - Padhai Ki Chaupal)
+- [x] **TASK-003: Project Skeleton, KSP, Hilt & Firebase Setup** (Done)
+- [x] **TASK-004: Gate G0 Review & Pivot Approval** (Approved by User)
 
 ---
 
-## Milestone G2: Core Issue & Solution Flows (Complete)
-- [x] **TASK-201: Issue Feed with Offline Caching**
-  - *AC:* Room Database (`AppDatabase`, `IssueEntity`, `IssueDao`) configured with reactive flows for full offline resilience.
-  - *Tests:* `MilestoneG2UnitTest.kt` verifying entity-domain mapping.
-- [x] **TASK-202: Voice-First Issue Creation**
-  - *AC:* Pulsing mic button in `PostIssueScreen`, anti-defamation guardrail banner, district & block selection.
-  - *Tests:* Verified state retention and required field checks.
-- [x] **TASK-203: Issue Detail Screen**
-  - *AC:* Header, location chips, optimistic support counter, 3-bullet AI summary card, solutions list.
-  - *Tests:* Navigational transitions and support counter updates.
-- [x] **TASK-204: Structured Solution Wizard & Card Form**
-  - *AC:* Mandatory fields (*क्या किया जाएगा, कौन करेगा, अनुमानित खर्च, समय, जोखिम, सफल उदाहरण*), Solution Coach review check.
-  - *Tests:* `structuredSolution_requiresActionableWhatAndWho` test.
-- [x] **TASK-205: Community Scoring & "Tried and Worked"**
-  - *AC:* Verified tried-and-worked counter badge and upvotes.
-  - *Tests:* Scoring logic verification.
+## Milestone G1: App Foundation, Theming & Navigation (Approved)
+- [x] **TASK-101: Warm Terracotta Design System (Material 3)** (Done)
+- [x] **TASK-102: Bilingual Localization (Hindi Default / English Secondary)** (Done)
+- [x] **TASK-103: Guest Browsing & Phone/Google Authentication** (Done)
+- [x] **TASK-104: Main Navigation Scaffolding (चौपाल / आइडिया बनाएं / असर / प्रोफाइल)** (Done)
 
 ---
 
-## Milestone G3: AI Features (Server-Proxied Gemini) - (Next)
-- [ ] **TASK-301: Solution Coach (Pre-Post Critique)**
-- [ ] **TASK-302: Duplicate Issue Detection**
-- [ ] **TASK-303: 3-Bullet Issue Summary & Best Practical Plan (BPP)**
+## Milestone G2: Learning Posts, Activity Cards & Community Knowledge (In Progress)
+- [x] **TASK-201: Learning Posts Feed with Offline Caching**
+  - *AC:* Two post tabs ("सवाल या चुनौती" / "आइडिया या गतिविधि") with 9 learning categories. Room DB offline cache (`PostEntity`, `PostDao`, `AppDatabase`).
+  - *Tests:* `testFeed_filtersByPostTypeAndCategory`.
+- [x] **TASK-202: Post Creation Flow (Question vs Activity Wizard)**
+  - *AC:* Post type selector, voice input for title & description, anti-complaint moderation banner, class/age group picker.
+  - *Tests:* `testCreateQuestion_requiresTitleAndCategory`.
+- [x] **TASK-203: Structured Activity Card Wizard**
+  - *AC:* Class/age group, time needed, low-cost TLM materials, step-by-step method, learning outcome, adaptation notes.
+  - *Tests:* `testActivityCard_validationRules`.
+- [x] **TASK-204: Post Detail & Activity Replies**
+  - *AC:* Question view with community activity replies, "Tried it and it worked" (काम कर गया) counter, upvotes, and expert badges.
+  - *Tests:* `testTriedCountIncrement`.
+- [x] **TASK-205: AI Best Study Plan (श्रेष्ठ अध्ययन योजना)**
+  - *AC:* Card displaying synthesized daily study routine from top community replies.
+  - *Tests:* `testBestStudyPlan_structureAndDisclaimer`.
 
 ---
 
-## Milestone G4: Safety, Moderation, WhatsApp Cards & Polish
-- [ ] **TASK-401: UGC Content Reporting & User Blocking**
-- [ ] **TASK-402: Minor Safety & DPDP Act 2023 Guardrails**
-- [ ] **TASK-403: WhatsApp Image Card Generator**
-- [ ] **TASK-404: Accessibility & Performance Audit**
+## Milestone G3: AI Features (Activity Coach, Duplicate Detection & Study Routine)
+- [ ] **TASK-301: Activity Coach (गतिविधि कोच)**
+  - Pre-post AI critique ensuring activities are age-appropriate, clear, and safe.
+- [ ] **TASK-302: Duplicate Question Detection & Clustering**
+  - Matches new questions against existing repository of answered questions.
+- [ ] **TASK-303: Best Study Plan Generator Cloud Function**
+  - Synthesizes top ideas into 7-day micro-habit routine.
 
 ---
 
-## Milestone G5: Production Hardening, Release Prep & Play Store
-- [ ] **TASK-501: Firebase Security Rules & Storage Rules Deployment**
-- [ ] **TASK-502: ProGuard/R8 Optimization & Release Signing**
-- [ ] **TASK-503: Release Documentation & Play Store Checklist**
+## Milestone G4: Safety, Moderation & Sharing
+- [ ] **TASK-401: Pre-Submit Anti-Complaint & Anti-Defamation Moderation Filter**
+  - Blocks infrastructure complaints (toilets, handpumps, teacher shortage, politics) and redirects to Jansunwai.
+- [ ] **TASK-402: WhatsApp Shareable Activity Card Image Generator**
+  - Generates lightweight branded JPEG/PNG cards for sharing in teachers' WhatsApp groups.
+- [ ] **TASK-403: DPDP Compliance & Report/Block System**
+  - Anonymous authoring options and community moderation flag workflow.
+
+---
+
+## Milestone G5: Launch Readiness & Gate G5 Sign-off
+- [ ] **TASK-501: End-to-End Testing on Low-End Device Profile**
+- [ ] **TASK-502: Security Audit & Firestore Rules Deployment**
+- [ ] **TASK-503: Release APK Build (<25MB) & Gate G5 Demo**

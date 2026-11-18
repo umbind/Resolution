@@ -12,3 +12,4 @@
 | **DEC-008** | Enforce DPDP Act 2023 compliance with minor protections | India's data law classifies individuals under 18 as children with strict prohibitions on profiling, tracking, and non-consensual data exposure. |
 | **DEC-009** | Adopt structured solution schema (What, Who, Cost, Time, Risks, Example) | Prevents social media ranting and forces actionable community problem-solving. |
 | **DEC-010** | WhatsApp Image Card generation via client Canvas/Bitmap | WhatsApp is the universal distribution channel in India; image cards ensure viral grassroots reach. |
+| **DEC-011** | Pivot product to "पढ़ाई की चौपाल" (Learning methods & activities community) | Pivot from infrastructure grievances to pedagogical community knowledge sharing. Exclude complaints; focus on Question/Challenge and Idea/Activity cards, with AI Best Study Plan synthesis. |

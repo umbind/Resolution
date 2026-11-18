@@ -15,13 +15,35 @@ service cloud.firestore {
       allow read: if isAuthenticated();
       allow create: if isOwner(userId);
       allow update: if isOwner(userId) && 
-        (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['isExpertVerified', 'reputationScore']));
-      allow delete: if false; // Soft deletes only
+        (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['isExpertVerified']));
+      allow delete: if false;
     }
 
-    // Issues
+    // Learning Posts (Questions & Activity Cards)
+    match /posts/{postId} {
+      allow read: if true; // Public read for guest browsing on Chaupal
+      allow create: if isAuthenticated() && request.resource.data.authorId == request.auth.uid;
+      allow update: if isAuthenticated() && (
+        resource.data.authorId == request.auth.uid || 
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['supportCount', 'triedCount', 'repliesCount', 'bestStudyPlan'])
+      );
+      allow delete: if isAuthenticated() && resource.data.authorId == request.auth.uid;
+
+      // Replies to a learning post (Community activity suggestions)
+      match /replies/{replyId} {
+        allow read: if true;
+        allow create: if isAuthenticated() && request.resource.data.authorId == request.auth.uid;
+        allow update: if isAuthenticated() && (
+          resource.data.authorId == request.auth.uid ||
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['upvotes', 'triedCount'])
+        );
+        allow delete: if isAuthenticated() && resource.data.authorId == request.auth.uid;
+      }
+    }
+
+    // Legacy / Parallel Issues & Solutions compatibility
     match /issues/{issueId} {
-      allow read: if true; // Public read for browsing without forced login
+      allow read: if true;
       allow create: if isAuthenticated() && request.resource.data.authorId == request.auth.uid;
       allow update: if isAuthenticated() && (
         resource.data.authorId == request.auth.uid || 
@@ -30,7 +52,6 @@ service cloud.firestore {
       allow delete: if isAuthenticated() && resource.data.authorId == request.auth.uid;
     }
 
-    // Solutions
     match /solutions/{solutionId} {
       allow read: if true;
       allow create: if isAuthenticated() && request.resource.data.authorId == request.auth.uid;
@@ -41,16 +62,10 @@ service cloud.firestore {
       allow delete: if isAuthenticated() && resource.data.authorId == request.auth.uid;
     }
 
-    // Evaluations
-    match /evaluations/{evalId} {
-      allow read: if true;
-      allow create, update: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
-    }
-
-    // UGC Reports
+    // UGC Reports & Moderation flags
     match /reports/{reportId} {
       allow create: if isAuthenticated() && request.resource.data.reporterUserId == request.auth.uid;
-      allow read, update, delete: if false; // Accessible only by admin/moderation backend
+      allow read, update, delete: if false;
     }
   }
 }

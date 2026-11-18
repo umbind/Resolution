@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">समाधान</string>
-    <string name="app_tagline">समस्या आपकी, समाधान हम सबका</string>
+    <string name="app_name">पढ़ाई की चौपाल</string>
+    <string name="app_tagline">सवाल पूछो, आइडिया बाँटो</string>
 
     <!-- Language & Selection -->
     <string name="lang_hindi">हिंदी</string>
@@ -10,18 +10,25 @@
     <string name="action_change_language">भाषा बदलें</string>
 
     <!-- Navigation -->
-    <string name="nav_feed">मुद्दे</string>
-    <string name="nav_post">नया मुद्दा</string>
-    <string name="nav_impact">सफलता</string>
+    <string name="nav_feed">चौपाल</string>
+    <string name="nav_post">नया विचार</string>
+    <string name="nav_impact">असर</string>
     <string name="nav_profile">प्रोफाइल</string>
 
+    <!-- Post Types -->
+    <string name="tab_all">सभी</string>
+    <string name="tab_questions">सवाल या चुनौती</string>
+    <string name="tab_activities">आइडिया या गतिविधि</string>
+    <string name="type_question">सवाल</string>
+    <string name="type_activity">गतिविधि कार्ड</string>
+
     <!-- General Actions -->
-    <string name="action_submit">दर्ज करें</string>
+    <string name="action_submit">साझा करें</string>
     <string name="action_cancel">रद्द करें</string>
     <string name="action_skip">छोड़ें</string>
     <string name="action_next">आगे बढ़ें</string>
     <string name="action_get_started">शुरू करें</string>
-    <string name="action_support">समर्थन करें</string>
+    <string name="action_support">पसंद आया</string>
     <string name="action_share_whatsapp">व्हाट्सएप पर साझा करें</string>
     <string name="action_report">रिपोर्ट करें</string>
     <string name="action_block">ब्लॉक करें</string>
@@ -29,18 +36,19 @@
     <string name="action_sign_in">लॉगिन करें</string>
     <string name="action_sign_out">लॉगआउट</string>
     <string name="action_continue_as_guest">अतिथि के रूप में देखें</string>
+    <string name="action_add_reply">अपना आइडिया या गतिविधि बताएं</string>
 
     <!-- Onboarding Cards -->
-    <string name="onboarding_1_title">समस्या साझा करें</string>
-    <string name="onboarding_1_desc">स्कूल या शिक्षा की किसी भी समस्या को बोलकर या लिखकर 60 सेकंड में दर्ज करें।</string>
-    <string name="onboarding_2_title">व्यावहारिक समाधान पाएं</string>
-    <string name="onboarding_2_desc">शिक्षक, अभिभावक और स्वयंसेवक मिलकर ठोस और व्यावहारिक उपाय सुझाते हैं।</string>
-    <string name="onboarding_3_title">सामूहिक बदलाव लाएं</string>
-    <string name="onboarding_3_desc">समाधानों को लागू करें, सफलता की कहानियां साझा करें और अपने गांव का मान बढ़ाएं।</string>
+    <string name="onboarding_1_title">सवाल पूछें, चुनौतियां बताएं</string>
+    <string name="onboarding_1_desc">पढ़ाने या समझने में जो भी मुश्किल हो, चौपाल पर बेझिझक पूछें।</string>
+    <string name="onboarding_2_title">आइडिया और गतिविधि कार्ड बाँटें</string>
+    <string name="onboarding_2_desc">कम खर्च की शिक्षण सामग्री (TLM), मजेदार खेल और पढ़ाई के आसान तरीके साझा करें।</string>
+    <string name="onboarding_3_title">साथ मिलकर सीखें और सिखाएं</string>
+    <string name="onboarding_3_desc">उपाय आजमाएं, 'काम कर गया' बताएं और सर्वश्रेष्ठ अध्ययन योजनाएं पाएं।</string>
 
     <!-- Authentication -->
-    <string name="auth_welcome">समाधान मंच में आपका स्वागत है</string>
-    <string name="auth_subtitle">शिक्षा में सुधार के लिए समुदाय से जुड़ें</string>
+    <string name="auth_welcome">पढ़ाई की चौपाल में आपका स्वागत है</string>
+    <string name="auth_subtitle">सीखने और सिखाने के नए तरीकों से जुड़ें</string>
     <string name="auth_phone_hint">10 अंकों का मोबाइल नंबर</string>
     <string name="auth_send_otp">OTP भेजें</string>
     <string name="auth_verify_otp">OTP सत्यापित करें</string>
@@ -48,50 +56,57 @@
     <string name="auth_or">अथवा</string>
     <string name="auth_google_btn">Google के साथ जुड़ें</string>
     <string name="auth_role_title">अपनी भूमिका चुनें</string>
-    <string name="auth_role_subtitle">ताकि हम आपको सही समुदाय से जोड़ सकें</string>
-    <string name="role_student">विद्यार्थी (Student)</string>
-    <string name="role_parent">अभिभावक (Parent)</string>
+    <string name="auth_role_subtitle">ताकि हम आपको सही समुदाय और सामग्री से जोड़ सकें</string>
     <string name="role_teacher">शिक्षक (Teacher)</string>
-    <string name="role_volunteer">युवा स्वयंसेवक (Volunteer)</string>
-    <string name="role_ngo">एनजीओ / संस्था (NGO)</string>
+    <string name="role_parent">अभिभावक (Parent)</string>
+    <string name="role_student">विद्यार्थी (Student 14+)</string>
+    <string name="role_shiksha_mitra">शिक्षा मित्र / अनुदेशक</string>
+    <string name="role_volunteer">शिक्षा स्वयंसेवक (Volunteer)</string>
 
     <!-- Post Creation -->
-    <string name="title_post_issue">नया मुद्दा दर्ज करें</string>
-    <string name="hint_issue_title">समस्या का संक्षेप में शीर्षक लिखें...</string>
-    <string name="hint_issue_desc">समस्या का पूरा विवरण दें या बोलकर बताएं...</string>
+    <string name="title_create_post">चौपाल पर नया विचार रखें</string>
+    <string name="choose_post_type">आप क्या साझा करना चाहते हैं?</string>
+    <string name="opt_ask_question">सवाल पूछें (पढ़ाने/सीखने की चुनौती)</string>
+    <string name="opt_share_activity">आइडिया या गतिविधि कार्ड साझा करें</string>
+    <string name="hint_post_title">शीर्षक (जैसे: कंकड़ों से जोड़-घटाना कैसे सिखाएं?)</string>
+    <string name="hint_post_desc">पूरी बात विस्तार से लिखें या बोलकर बताएं...</string>
     <string name="prompt_voice_input">बोलकर बताएं</string>
     <string name="listening_voice">सुन रहे हैं... बोलिए</string>
-    <string name="warning_no_personal_names">कृपया किसी शिक्षक या छात्र का व्यक्तिगत नाम न लिखें।</string>
+    <string name="banner_scope_notice">यह मंच पढ़ाई के तरीकों और गतिविधियों के लिए है। स्कूल मरम्मत या शिकायत के लिए जनसुनवाई (1076) का उपयोग करें।</string>
 
-    <!-- Categories -->
-    <string name="cat_all">सभी</string>
-    <string name="cat_infrastructure">भवन एवं शौचालय</string>
-    <string name="cat_teaching">शिक्षक एवं कक्षा</string>
-    <string name="cat_mid_day_meal">मध्याह्न भोजन</string>
-    <string name="cat_materials">किताबें व सामग्री</string>
-    <string name="cat_safety">बालिका सुरक्षा</string>
+    <!-- 9 Core Learning Categories -->
+    <string name="cat_all">सभी विषय</string>
+    <string name="cat_study_methods">पढ़ाई के तरीके व तकनीक</string>
+    <string name="cat_math_science">गणित और विज्ञान गतिविधियाँ</string>
+    <string name="cat_reading_writing">पढ़ना और लिखना</string>
+    <string name="cat_english_lang">अंग्रेजी व भाषा सीखें</string>
+    <string name="cat_exam_prep">परीक्षा तैयारी व तनाव मुक्ति</string>
+    <string name="cat_low_cost_tlm">कम खर्च सामग्री / TLM</string>
+    <string name="cat_classroom_teaching">कक्षा में पढ़ाने के तरीके</string>
+    <string name="cat_career_skills">करियर और हुनर</string>
+    <string name="cat_parent_support">घर पर बच्चों की पढ़ाई में मदद</string>
 
-    <!-- Structured Solution Form -->
-    <string name="title_add_solution">व्यावहारिक समाधान सुझाएं</string>
-    <string name="field_what">क्या किया जाएगा?</string>
-    <string name="field_who">यह काम कौन करेगा? (जैसे SMC, पंचायत, स्वयंसेवक)</string>
-    <string name="field_cost">अनुमानित खर्च</string>
-    <string name="field_time">अनुमानित समय</string>
-    <string name="field_risks">संभावित कठिनाई या जोखिम</string>
-    <string name="field_example">क्या यह पहले कहीं सफल हुआ है?</string>
+    <!-- Structured Activity Card Schema -->
+    <string name="title_activity_card">गतिविधि कार्ड (Activity Card)</string>
+    <string name="field_target_class">कक्षा या आयु वर्ग (जैसे: कक्षा 3-5)</string>
+    <string name="field_time_needed">समय (जैसे: 10-15 मिनट)</string>
+    <string name="field_materials">सामग्री (कम खर्च / TLM, जैसे: माचिस की तीलियां, कागज)</string>
+    <string name="field_step_by_step">चरणबद्ध तरीका (स्टेप 1, 2, 3...)</string>
+    <string name="field_learning_outcome">सीखने का प्रतिफल (बच्चा क्या सीखेगा?)</string>
+    <string name="field_adaptations">सुझाव या बदलाव (वैकल्पिक)</string>
 
-    <!-- AI Badges & Labels -->
-    <string name="badge_ai_generated">AI द्वारा संकलित सुझाव</string>
-    <string name="badge_best_plan">श्रेष्ठ व्यावहारिक योजना (Best Practical Plan)</string>
-    <string name="btn_ai_coach">AI समाधान मित्र से जांचें</string>
+    <!-- Community Signals & AI -->
+    <string name="tag_tried_worked">काम कर गया (प्रमाणित)</string>
+    <string name="btn_mark_tried">मैंने आजमाया, काम कर गया!</string>
+    <string name="badge_expert_verified">प्रमाणित शिक्षक</string>
+    <string name="badge_best_study_plan">श्रेष्ठ अध्ययन योजना (AI संकलित)</string>
+    <string name="badge_activity_coach">गतिविधि कोच सुझाव</string>
+    <string name="btn_ai_coach">AI गतिविधि कोच से सुझाव लें</string>
+    <string name="disclaimer_study_plan">यह योजना शिक्षकों और अभिभावकों के सफल अनुभवों पर आधारित है।</string>
 
-    <!-- Status Chips -->
-    <string name="status_open">खुला है</string>
-    <string name="status_solutions_added">समाधान मिले</string>
-    <string name="status_in_progress">कार्य प्रगति पर</string>
-    <string name="status_resolved">हल हो गया</string>
-
-    <!-- Impact & Verification -->
-    <string name="tag_tried_worked">प्रमाणित: यह उपाय काम कर गया</string>
-    <string name="badge_expert_verified">प्रमाणित शिक्षा मित्र</string>
+    <!-- Status & Filters -->
+    <string name="status_needs_answers">उत्तर चाहिए</string>
+    <string name="status_answered">आइडिया उपलब्ध हैं</string>
+    <string name="replies_count_format">%d आइडिया व गतिविधियां</string>
+    <string name="tried_count_format">%d लोगों ने आजमाया और सफल रहे</string>
 </resources>
