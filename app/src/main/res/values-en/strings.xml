@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Resolution</string>
+    <string name="app_tagline">Local challenges, community solutions</string>
+
+    <!-- Navigation -->
+    <string name="nav_feed">Issues</string>
+    <string name="nav_post">New Issue</string>
+    <string name="nav_impact">Impact</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- General Actions -->
+    <string name="action_continue_hindi">Continue in Hindi</string>
+    <string name="action_continue_english">Continue in English</string>
+    <string name="action_submit">Submit</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_support">Support</string>
+    <string name="action_share_whatsapp">Share on WhatsApp</string>
+    <string name="action_report">Report</string>
+    <string name="action_block">Block</string>
+
+    <!-- Post Creation -->
+    <string name="title_post_issue">Post a New Issue</string>
+    <string name="hint_issue_title">Enter a clear, brief title...</string>
+    <string name="hint_issue_desc">Describe the issue or speak using microphone...</string>
+    <string name="prompt_voice_input">Tap to Speak</string>
+    <string name="warning_no_personal_names">Please do not mention personal names of teachers or students.</string>
+
+    <!-- Structured Solution Form -->
+    <string name="title_add_solution">Suggest a Practical Solution</string>
+    <string name="field_what">What will be done?</string>
+    <string name="field_who">Who will do this? (e.g., SMC, Panchayat, Volunteers)</string>
+    <string name="field_cost">Estimated Cost</string>
+    <string name="field_time">Estimated Time</string>
+    <string name="field_risks">Key Risks &amp; Roadblocks</string>
+    <string name="field_example">Has this worked elsewhere?</string>
+
+    <!-- AI Badges & Labels -->
+    <string name="badge_ai_generated">AI-Generated Summary</string>
+    <string name="badge_best_plan">Best Practical Plan</string>
+    <string name="btn_ai_coach">Check with AI Coach</string>
+
+    <!-- Status Chips -->
+    <string name="status_open">Open</string>
+    <string name="status_solutions_added">Solutions Added</string>
+    <string name="status_in_progress">In Progress</string>
+    <string name="status_resolved">Resolved</string>
+
+    <!-- Impact & Verification -->
+    <string name="tag_tried_worked">Verified: Tried &amp; Worked</string>
+    <string name="badge_expert_verified">Verified Expert</string>
+</resources>

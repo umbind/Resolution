@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">समाधान</string>
+    <string name="app_tagline">समस्या आपकी, समाधान हम सबका</string>
+
+    <!-- Navigation -->
+    <string name="nav_feed">मुद्दे</string>
+    <string name="nav_post">नया मुद्दा</string>
+    <string name="nav_impact">सफलता</string>
+    <string name="nav_profile">प्रोफाइल</string>
+
+    <!-- General Actions -->
+    <string name="action_continue_hindi">हिंदी में जारी रखें</string>
+    <string name="action_continue_english">Continue in English</string>
+    <string name="action_submit">दर्ज करें</string>
+    <string name="action_cancel">रद्द करें</string>
+    <string name="action_support">समर्थन करें</string>
+    <string name="action_share_whatsapp">व्हाट्सएप पर साझा करें</string>
+    <string name="action_report">रिपोर्ट करें</string>
+    <string name="action_block">ब्लॉक करें</string>
+
+    <!-- Post Creation -->
+    <string name="title_post_issue">नया मुद्दा दर्ज करें</string>
+    <string name="hint_issue_title">समस्या का संक्षेप में शीर्षक लिखें...</string>
+    <string name="hint_issue_desc">समस्या का पूरा विवरण दें या बोलकर बताएं...</string>
+    <string name="prompt_voice_input">बोलकर बताएं</string>
+    <string name="warning_no_personal_names">कृपया किसी शिक्षक या छात्र का व्यक्तिगत नाम न लिखें।</string>
+
+    <!-- Structured Solution Form -->
+    <string name="title_add_solution">व्यावहारिक समाधान सुझाएं</string>
+    <string name="field_what">क्या किया जाएगा?</string>
+    <string name="field_who">यह काम कौन करेगा? (जैसे SMC, पंचायत, स्वयंसेवक)</string>
+    <string name="field_cost">अनुमानित खर्च</string>
+    <string name="field_time">अनुमानित समय</string>
+    <string name="field_risks">संभावित कठिनाई या जोखिम</string>
+    <string name="field_example">क्या यह पहले कहीं सफल हुआ है?</string>
+
+    <!-- AI Badges & Labels -->
+    <string name="badge_ai_generated">AI द्वारा संकलित सुझाव</string>
+    <string name="badge_best_plan">श्रेष्ठ व्यावहारिक योजना (Best Practical Plan)</string>
+    <string name="btn_ai_coach">AI समाधान मित्र से जांचें</string>
+
+    <!-- Status Chips -->
+    <string name="status_open">खुला है</string>
+    <string name="status_solutions_added">समाधान मिले</string>
+    <string name="status_in_progress">कार्य प्रगति पर</string>
+    <string name="status_resolved">हल हो गया</string>
+
+    <!-- Impact & Verification -->
+    <string name="tag_tried_worked">प्रमाणित: यह उपाय काम कर गया</string>
+    <string name="badge_expert_verified">प्रमाणित शिक्षा मित्र</string>
+</resources>

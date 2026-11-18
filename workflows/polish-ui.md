@@ -1,0 +1,3 @@
+# /polish-ui Workflow
+
+Review every existing screen against docs/DESIGN.md and the "Design and engagement" rules. For each screen, check spacing, typography in Hindi and English, colour contrast, touch-target size, empty, loading, and error states, dark mode, large-font behaviour, and animation smoothness on the low-end emulator profile. Fix the issues you find, add or update screenshot and accessibility tests where possible, take before-and-after screenshots, update docs/DESIGN.md, run all tests, and commit. Then score the app with the UX rubric in docs/UX_BENCHMARK.md, show the scores with evidence, list the 3 changes that most improved the look and feel, and name the weakest category and what it would take to raise it.
