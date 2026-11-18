@@ -91,6 +91,10 @@ dependencies {
     // Image loading
     implementation("io.coil-kt.coil3:coil-compose:3.0.4")
 
+    // Room Database (Offline Cache)
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+
     // Unit Testing
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")

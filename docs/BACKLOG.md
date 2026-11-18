@@ -12,35 +12,35 @@ Milestones are mapped to Approval Gates (G0 to G5). Each task is sized for a sin
 
 ---
 
-## Milestone G1: App Foundation, Design System, Onboarding & Auth (Complete)
-- [x] **TASK-101: Design System & Theming (Material 3)**
-  - *AC:* Warm Indian educational palette (`Warm Terracotta`, `Earthy Clay`, `Forest Green`), Devanagari typography scale (Noto Sans Devanagari), light & dark themes, button/card components with 48dp+ touch targets.
-  - *Tests:* Verified in `com.resolution.app.ui.theme` and `PrimaryButton`, `IssueCard`, `StatusBadge`.
-- [x] **TASK-102: Localisation Infrastructure**
-  - *AC:* Zero hardcoded strings; Hindi (`res/values/strings.xml`) as default locale, English (`res/values-en/strings.xml`) secondary. Language selector supporting runtime switch.
-  - *Tests:* Python XML compliance verification in CI workflow.
-- [x] **TASK-103: Onboarding & Guest Browsing Flow**
-  - *AC:* 3 skippable onboarding cards explaining community problem solving; guest access allowed to view feed without forced login.
-  - *Tests:* `OnboardingScreen` with pager state, skip actions, and language toggle.
-- [x] **TASK-104: Authentication (Phone OTP & Google)**
-  - *AC:* Firebase Auth integration with clean phone number input, OTP verification, Google Sign-In, and user role selection modal (Student, Parent, Teacher, Volunteer, NGO).
-  - *Tests:* `AuthScreen` with state machine and role picker bottom sheet.
-- [x] **TASK-105: Bottom Navigation & Screen Scaffolding**
-  - *AC:* 4 main destinations: Feed (मुद्दे), Post (नया मुद्दा), Impact (सफलता), Profile (प्रोफाइल); Edge-to-edge layout, predictive back support.
-  - *Tests:* `MainDestination` enum test (4 tabs) in `MilestoneG1UnitTest`.
+## Milestone G1: App Foundation, Design System, Onboarding & Auth (Approved)
+- [x] **TASK-101: Design System & Theming (Material 3)** (Done)
+- [x] **TASK-102: Localisation Infrastructure** (Done)
+- [x] **TASK-103: Onboarding & Guest Browsing Flow** (Done)
+- [x] **TASK-104: Authentication (Phone OTP & Google)** (Done)
+- [x] **TASK-105: Bottom Navigation & Screen Scaffolding** (Done)
 
 ---
 
-## Milestone G2: Core Issue & Solution Flows (Offline-First) - (Next)
-- [ ] **TASK-201: Issue Feed with Offline Caching**
-- [ ] **TASK-202: Voice-First Issue Creation**
-- [ ] **TASK-203: Issue Detail Screen**
-- [ ] **TASK-204: Structured Solution Creation**
-- [ ] **TASK-205: Community Scoring & "Tried and Worked"**
+## Milestone G2: Core Issue & Solution Flows (Complete)
+- [x] **TASK-201: Issue Feed with Offline Caching**
+  - *AC:* Room Database (`AppDatabase`, `IssueEntity`, `IssueDao`) configured with reactive flows for full offline resilience.
+  - *Tests:* `MilestoneG2UnitTest.kt` verifying entity-domain mapping.
+- [x] **TASK-202: Voice-First Issue Creation**
+  - *AC:* Pulsing mic button in `PostIssueScreen`, anti-defamation guardrail banner, district & block selection.
+  - *Tests:* Verified state retention and required field checks.
+- [x] **TASK-203: Issue Detail Screen**
+  - *AC:* Header, location chips, optimistic support counter, 3-bullet AI summary card, solutions list.
+  - *Tests:* Navigational transitions and support counter updates.
+- [x] **TASK-204: Structured Solution Wizard & Card Form**
+  - *AC:* Mandatory fields (*क्या किया जाएगा, कौन करेगा, अनुमानित खर्च, समय, जोखिम, सफल उदाहरण*), Solution Coach review check.
+  - *Tests:* `structuredSolution_requiresActionableWhatAndWho` test.
+- [x] **TASK-205: Community Scoring & "Tried and Worked"**
+  - *AC:* Verified tried-and-worked counter badge and upvotes.
+  - *Tests:* Scoring logic verification.
 
 ---
 
-## Milestone G3: AI Features (Server-Proxied Gemini)
+## Milestone G3: AI Features (Server-Proxied Gemini) - (Next)
 - [ ] **TASK-301: Solution Coach (Pre-Post Critique)**
 - [ ] **TASK-302: Duplicate Issue Detection**
 - [ ] **TASK-303: 3-Bullet Issue Summary & Best Practical Plan (BPP)**
